@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>Vabysmo Photo Wall</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="welcomeScreen" class="welcome-screen" aria-label="Welcome screen">
+    <div class="welcome-art">
+      <img src="welcome-screen.png" alt="Vabysmo event welcome screen">
+      <button id="startButton" class="welcome-start" type="button" aria-label="Tap the hand to start"></button>
+    </div>
+  </section>
+
+  <main id="registrationPage" class="page-shell" aria-hidden="true">
+    <header class="brand-header" aria-label="Vabysmo and Roche">
+      <img src="brand-header.png" alt="Vabysmo and Roche">
+    </header>
+
+    <form id="registrationForm" novalidate>
+      <div class="photo-section">
+        <label class="photo-picker" for="photoInput">
+          <img id="photoPreview" alt="Your selected photo preview">
+          <span id="photoPrompt">
+            <b aria-hidden="true">+</b>
+            <strong>ADD YOUR PHOTO</strong>
+            <small>Tap to open camera</small>
+          </span>
+        </label>
+        <input id="photoInput" type="file" accept="image/*" capture="user" required>
+      </div>
+
+      <label class="field name-field">
+        <span>NAME</span>
+        <input id="nameInput" type="text" maxlength="30" autocomplete="name" placeholder="YOUR NAME" required>
+      </label>
+
+      <label class="field message-field">
+        <span>YOUR MESSAGE</span>
+        <textarea id="messageInput" maxlength="100" rows="4" placeholder="Type your message here" required></textarea>
+        <small><span id="messageCount">0</span>/100</small>
+      </label>
+
+      <button id="submitButton" type="submit">SUBMIT</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
