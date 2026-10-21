@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
-  <title>Vabysmo Photo Wall</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#08001f">
+  <title>Vabysmo Commitment Wall</title>
+  <link rel="stylesheet" href="styles.css?v=20261021-name-photo-1">
 </head>
 <body>
   <section id="welcomeScreen" class="welcome-screen" aria-label="Welcome screen">
     <div class="welcome-art">
-      <img src="welcome-screen.png" alt="Vabysmo event welcome screen">
-      <button id="startButton" class="welcome-start" type="button" aria-label="Tap the hand to start"></button>
+      <img src="commitment-welcome.png" alt="Vabysmo commitment wall welcome screen">
+      <button id="startButton" class="welcome-start" type="button" aria-label="Start"></button>
     </div>
   </section>
 
@@ -26,28 +29,27 @@
           <img id="photoPreview" alt="Your selected photo preview">
           <span id="photoPrompt">
             <b aria-hidden="true">+</b>
-            <strong>ADD YOUR PHOTO</strong>
-            <small>Tap to open camera</small>
+            <strong>TAP TO ADD PHOTO</strong>
           </span>
         </label>
         <input id="photoInput" type="file" accept="image/*" capture="user" required>
       </div>
 
-      <label class="field name-field">
-        <span>NAME</span>
-        <input id="nameInput" type="text" maxlength="30" autocomplete="name" placeholder="YOUR NAME" required>
+      <div class="photo-copy">
+        <h1>ADD YOUR PHOTO</h1>
+        <p>Add your name and share your photo on the big screen</p>
+      </div>
+
+      <label class="name-field" for="nameInput">
+        <span>YOUR NAME</span>
+        <input id="nameInput" type="text" maxlength="30" autocomplete="name" placeholder="Enter your name" required>
       </label>
 
-      <label class="field message-field">
-        <span>YOUR MESSAGE</span>
-        <textarea id="messageInput" maxlength="100" rows="4" placeholder="Type your message here" required></textarea>
-        <small><span id="messageCount">0</span>/100</small>
-      </label>
-
-      <button id="submitButton" type="submit">SUBMIT</button>
       <p id="status" class="status" role="status" aria-live="polite"></p>
+      <button id="submitButton" type="submit">SEND PHOTO</button>
     </form>
   </main>
-  <script src="app.js"></script>
+
+  <script src="app.js?v=20261021-name-photo-1"></script>
 </body>
 </html>

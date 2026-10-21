@@ -7,8 +7,6 @@ const photoInput = document.querySelector("#photoInput");
 const photoPreview = document.querySelector("#photoPreview");
 const photoPrompt = document.querySelector("#photoPrompt");
 const nameInput = document.querySelector("#nameInput");
-const messageInput = document.querySelector("#messageInput");
-const messageCount = document.querySelector("#messageCount");
 const submitButton = document.querySelector("#submitButton");
 const status = document.querySelector("#status");
 
@@ -20,7 +18,7 @@ startButton.addEventListener("click", () => {
   welcomeScreen.classList.add("is-leaving");
   window.setTimeout(() => {
     welcomeScreen.hidden = true;
-    document.querySelector(".photo-picker")?.focus();
+    photoInput.focus();
   }, 550);
 });
 
@@ -45,16 +43,12 @@ photoInput.addEventListener("change", () => {
   setStatus("");
 });
 
-messageInput.addEventListener("input", () => {
-  messageCount.textContent = messageInput.value.length;
-});
-
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const personName = nameInput.value.trim();
-  const message = messageInput.value.trim();
-  if (!selectedFile || !personName || !message) {
-    setStatus("Please add a photo, your name, and a message.", "error");
+  const message = "";
+  if (!selectedFile || !personName) {
+    setStatus("Please add a photo and your name.", "error");
     return;
   }
 
@@ -83,7 +77,8 @@ form.addEventListener("submit", async (event) => {
     setStatus("Sent! Look at the big screen ✨", "success");
     form.reset();
     selectedFile = null;
-    messageCount.textContent = "0";
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = null;
     photoPreview.removeAttribute("src");
     photoPreview.style.display = "none";
     photoPrompt.style.display = "block";
